@@ -5,7 +5,7 @@ export const questionsBankList2quizTest = (questionList) => {
       answers: singleQuestion.answers,
       indexOfCorrectAnswer: singleQuestion.indexOfCorrectAnswer,
       userAnswer: undefined,
-      id: index,
+      index: index,
     };
   });
   return adaptedQuestions;

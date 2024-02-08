@@ -26,7 +26,7 @@ export function Quiz() {
       {currentQuestion && currentQuestion !== "quizFinished" ? <SingleQuestion
         question={currentQuestion}
         selectAnswer={(indexOfAnswer) => {
-          dispatch(selectAnswer({ indexOfQuestion: currentQuestion.id, userAnswer: indexOfAnswer }))
+          dispatch(selectAnswer({ indexOfQuestion: currentQuestion.index, userAnswer: indexOfAnswer }))
         }} /> :
         <QuizResult quiz={quiz} />
       }

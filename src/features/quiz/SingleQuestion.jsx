@@ -11,31 +11,28 @@ import { styled } from '@mui/system';
 // BUT I USED STYLED-COMPONENT IN THE QuizResult COMPONENT AS YOU CAN SEE
 const StyledFormControl = styled(FormControl)({
     backgroundColor: 'aliceblue',
-    padding: '2rem',
-    width: '100vw',
+    padding: "2rem",
+    width: '80vw',
 });
-
 const StyledFormLabel = styled(FormLabel)({
     color: '#1976DB',
     fontSize: "24px",
     fontWeight: 700,
 });
-
 const StyledFormControlLabel = styled(FormControlLabel)({
     margin: '1rem',
     padding: '1rem',
     maxWidth: '80%',
     border: "1px solid black",
+    borderRadius: "4px",
     '&:hover': {
         backgroundColor: 'rgba(0, 0, 0, 0.1)', 
         cursor: 'pointer', 
     },
 })
-
 const StyledRadio = styled(Radio)({
     display: 'none'
 })
-
 
 const SingleQuestion = ({ question, selectAnswer }) => {
     return (
