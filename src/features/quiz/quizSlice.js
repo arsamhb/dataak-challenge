@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { reactTest } from "./questionBank";
+import { questionsBankList2quizTest } from "./adapter.quiz";
 
 export const quizSlice = createSlice({
   name: "quiz",
@@ -7,18 +8,13 @@ export const quizSlice = createSlice({
     value: questionsBankList2quizTest(reactTest),
   },
   reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    selectAnswer: (state, action) => {
+      const { indexOfQuestion, userAnswer } = action.payload;
+      state.value[indexOfQuestion].userAnswer = userAnswer;
     },
   },
 });
 
-export const { increment, decrement, incrementByAmount } = quizSlice.actions;
+export const { selectAnswer } = quizSlice.actions;
 
 export default quizSlice.reducer;

@@ -2,9 +2,9 @@ import { Quiz } from "./features/quiz/Quiz";
 
 function App() {
   return (
-    <div>
+    <main>
       <Quiz />
-    </div>
+    </main>
   );
 }
 
