@@ -1,12 +1,7 @@
-export const questionsBankList2quizTest = (questionList) => {
-  const adaptedQuestions = questionList.map((singleQuestion, index) => {
-    return {
-      question: singleQuestion.question,
-      answers: singleQuestion.answers,
-      indexOfCorrectAnswer: singleQuestion.indexOfCorrectAnswer,
-      userAnswer: undefined,
-      index: index,
-    };
-  });
-  return adaptedQuestions;
+export const adaptQuestionListForQuiz = (questionList) => {
+  return questionList.map((question, index) => ({
+    ...question,
+    userAnswer: undefined,
+    index: index,
+  }));
 };

@@ -1,20 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { reactTest } from "./questionBank";
-import { questionsBankList2quizTest } from "./adapter.quiz";
+import { adaptQuestionListForQuiz } from "./adapter.quiz";
 
 export const quizSlice = createSlice({
   name: "quiz",
   initialState: {
-    value: questionsBankList2quizTest(reactTest),
+    value: adaptQuestionListForQuiz(reactTest),
   },
   reducers: {
     selectAnswer: (state, action) => {
       const { indexOfQuestion, userAnswer } = action.payload;
       state.value[indexOfQuestion].userAnswer = userAnswer;
     },
+    cleanUserAnswers: (state) => {
+      state.value.forEach((question) => {
+        question.userAnswer = undefined;
+      });
+    },
   },
 });
 
-export const { selectAnswer } = quizSlice.actions;
+export const { selectAnswer, cleanUserAnswers } = quizSlice.actions;
 
 export default quizSlice.reducer;

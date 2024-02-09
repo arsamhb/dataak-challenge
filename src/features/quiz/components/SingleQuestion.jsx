@@ -26,8 +26,8 @@ const StyledFormControlLabel = styled(FormControlLabel)({
     border: "1px solid black",
     borderRadius: "4px",
     '&:hover': {
-        backgroundColor: 'rgba(0, 0, 0, 0.1)', 
-        cursor: 'pointer', 
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        cursor: 'pointer',
     },
 })
 const StyledRadio = styled(Radio)({
@@ -37,22 +37,20 @@ const StyledRadio = styled(Radio)({
 const SingleQuestion = ({ question, selectAnswer }) => {
     return (
         <StyledFormControl>
-            <StyledFormLabel id={question.question}>{question.question}</StyledFormLabel>
+            <StyledFormLabel id={question.index}>{question.question}</StyledFormLabel>
             <RadioGroup
                 aria-labelledby={question.question}
-                defaultValue={undefined}
-                name={`question number ${question.id} `}
+                name={`question number ${question.index} `}
             >
                 {question.answers.map((answer, index) =>
                     <StyledFormControlLabel
                         key={index}
                         value={index}
-                        control={<StyledRadio
-                            checked={question.userAnswer === index}
-                            onChange={() => {
-                                selectAnswer(index)
-                            }}
-                        />}
+                        control={<StyledRadio/>}
+                        checked={question.userAnswer === index}
+                        onChange={() => {
+                            selectAnswer(index)
+                        }}
                         label={answer} />
                 )}
             </RadioGroup>
